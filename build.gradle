@@ -18,9 +18,34 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	// Core Spring Boot Web dependency for REST API endpoints
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// JPA for database interactions with PostgreSQL
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.postgresql:postgresql'
+
+	// Redis for real-time leaderboard data using sorted sets
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+	// Spring Security for authentication (even if only some endpoints are secured)
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Actuator for monitoring and managing your application
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// Springdoc OpenAPI UI to generate interactive API documentation
+	implementation 'org.springdoc:springdoc-openapi-ui:2.0.2'
+
+	// Lombok to reduce boilerplate code
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// DevTools for automatic restarts and live reload during development
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Starter test dependency for writing tests
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
